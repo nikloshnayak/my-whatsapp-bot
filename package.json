@@ -1,7 +1,7 @@
 {
   "name": "my-whatsapp-bot",
   "version": "1.0.0",
-  "description": "Free WhatsApp API",
+  "description": "Free WhatsApp Bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
