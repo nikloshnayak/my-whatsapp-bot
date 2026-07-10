@@ -11,7 +11,7 @@ const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
-        // Docker के अंदर क्रोम का डिफ़ॉल्ट रास्ता यही होता है
+        // Docker एनवायरनमेंट में क्रोम का पक्का और फिक्स रास्ता
         executablePath: '/usr/bin/google-chrome', 
         args: [
             '--no-sandbox', 
