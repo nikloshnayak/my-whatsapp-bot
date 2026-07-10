@@ -4,8 +4,7 @@
   "description": "Free WhatsApp API",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "render-postbuild": "npx puppeteer browsers install chrome"
+    "start": "node index.js"
   },
   "dependencies": {
     "express": "^4.19.2",
