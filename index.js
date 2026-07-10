@@ -11,8 +11,8 @@ const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
-        // यहाँ हम सीधा रेंडर के डाउनलोड किए गए क्रोम का रास्ता दे रहे हैं
-        executablePath: '/opt/render/.cache/puppeteer/chrome/linux-127.0.6533.88/chrome-linux64/chrome',
+        // Docker के अंदर क्रोम का डिफ़ॉल्ट रास्ता यही होता है
+        executablePath: '/usr/bin/google-chrome', 
         args: [
             '--no-sandbox', 
             '--disable-setuid-sandbox', 
