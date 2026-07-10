@@ -2,7 +2,9 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+
+// Render के पोर्ट एरर को बाईपास करने के लिए 0.0.0.0 का उपयोग
+const port = process.env.PORT || 10000; 
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -42,7 +44,8 @@ app.post('/send-message', async (req, res) => {
 
 app.get('/', (req, res) => { res.send('WhatsApp API Server is Running...'); });
 
-app.listen(port, () => {
+// यहाँ हम '0.0.0.0' जोड़ रहे हैं ताकि Render तुरंत पोर्ट पकड़ ले
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
     client.initialize();
 });
