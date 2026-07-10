@@ -2,9 +2,7 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const express = require('express');
 const app = express();
-
-// Render के पोर्ट एरर को बाईपास करने के लिए 0.0.0.0 का उपयोग
-const port = process.env.PORT || 10000; 
+const port = process.env.PORT || 10000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -13,6 +11,7 @@ const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
+        // यहाँ हमने पाथ हटा दिया है ताकि Puppeteer अपने डिफ़ॉल्ट डाउनलोड किए गए क्रोम को खुद ढूंढे
         args: [
             '--no-sandbox', 
             '--disable-setuid-sandbox', 
@@ -44,7 +43,6 @@ app.post('/send-message', async (req, res) => {
 
 app.get('/', (req, res) => { res.send('WhatsApp API Server is Running...'); });
 
-// यहाँ हम '0.0.0.0' जोड़ रहे हैं ताकि Render तुरंत पोर्ट पकड़ ले
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
     client.initialize();
